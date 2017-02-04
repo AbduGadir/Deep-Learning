@@ -27,15 +27,15 @@ The cpu version did that in about half an hour. Apparantly, the 10x performance 
   You can type  `gcc --version` to check LLVM version
 3. Set Xcode directory to Xcode7 to compile cuda samples to test whether the installation is a success. Don't forget to add cuda path to `~/.bash_profile`
 
-            export CUDA_HOME=/usr/local/cuda
+       export CUDA_HOME=/usr/local/cuda
        
-            export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+       export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
        
-            export PATH="$CUDA_HOME/bin:$PATH"
+       export PATH="$CUDA_HOME/bin:$PATH"
 
     After installing cuda type in
     
-        sudo ln -s /usr/local/cuda/lib/libcuda.dylib /usr/local/cuda/lib/libcuda.1.dylib` 
+       sudo ln -s /usr/local/cuda/lib/libcuda.dylib /usr/local/cuda/lib/libcuda.1.dylib` 
 to create symbolic link so as to prevent segmentation fault when importing TensorFlow later
 
 4. Choose the right distribution of TensorFlow and pip install it. You can try, but most likely, python will fail importing TensorFlow
