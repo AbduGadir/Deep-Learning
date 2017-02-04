@@ -1,6 +1,10 @@
 # Setting up TensorFlow-GPU on Mac
 
-Installing GPU-enabled TensorFlow on Mac is a torture. It takes hours to find the right tweaks. While there are only few people using NVIDIA GPUs on their mac because of recent adoption of AMD chips, this instruction will still benefit the users of Hackintosh or old Mac Pros. I'm not sure whether this will work on eGPUs, if it does, it could be great news for other Mac users with their purchase of eGPU boxes like Razor Core or Akitio Node.
+Installing GPU-enabled TensorFlow on Mac is a torture. It takes hours to find the right tweaks. While there are only few people using NVIDIA GPUs on their mac because of Apple's recent adoption of AMD chips, this instruction will still benefit the users of Hackintosh or old Mac Pros. I'm not sure whether this will work on eGPUs, if it does, it could be great news for other Mac users with their purchase of eGPU boxes like Razor Core or Akitio Node.
+
+Performance wise, the GPU version took about 3 minutes to run the "deep MNIST for experts" tutorial. 
+`https://www.tensorflow.org/tutorials/mnist/pros/`
+The cpu version did that in about half an hour. Apparantly, the 10x performance boost is worth the chore. 
 
       My System:
        i5-4690k
@@ -36,6 +40,7 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
   Currently, enter cuda version as 8.0 and cudnn version as 5 (though 5.1 in fact)
   Check GPU computability on Nvidia's website:
   `https://developer.nvidia.com/cuda-gpus`
+  
   According to the official installation guide, when done configuring you should enter
   `bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package`
   to start building. However, most likely it will throw you an error `dyld: Library not loaded: @rpath/libcudart.8.0.dylib`
@@ -43,8 +48,10 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
   You will have to modify the `genrule-setup.sh` in your temp folder following the instructions.
   You can search or find it here:
         /private/var/tmp/.../execroot/tensorflow/external/bazel_tools/tools/genrule/genrule-setup.sh
+        
   After modification, run `./configure` in TensorFlow workspace again and start building with 
         bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package 
+  
   This will take a long time, enjoy your life. Continue with
         bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
         sudo pip install --upgrade --ignore-installed  /tmp/tensorflow_pkg/tensorflow-*.whl
