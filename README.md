@@ -43,7 +43,8 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
   
   According to the official installation guide, when done configuring you should enter
   `bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package`
-  to start building. However, most likely it will throw you an error `dyld: Library not loaded: @rpath/libcudart.8.0.dylib`
+  to start building. However, most likely it will throw you an error 
+  `dyld: Library not loaded: @rpath/libcudart.8.0.dylib`
   To solve the problem see `https://github.com/JimmyKon/tensorflow_build_issue_fix/tree/master`
   You will have to modify the `genrule-setup.sh` in your temp folder following the instructions.
   You can search or find it here:
@@ -53,13 +54,13 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
         bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package 
   
   This will take a long time, enjoy your life. Continue with
-        bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-        sudo pip install --upgrade --ignore-installed  /tmp/tensorflow_pkg/tensorflow-*.whl
+                  `bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg`
+                  `sudo pip install --upgrade --ignore-installed  /tmp/tensorflow_pkg/tensorflow-*.whl`
   If you are using something like anaconda, `--ignore-installed` is necessary, `sudo` is related to your pip install
  
   At this time, try importing TensorFlow in your python. If it throws you a `keyerror:...`
   Try installing this version of protobuf provided by Google
-        sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/protobuf-3.1.0-cp27-none-macosx_10_11_x86_64.whl 
+`sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/protobuf-3.1.0-cp27-none-macosx_10_11_x86_64.whl`
   I don't know whether there is a proper GPU version, this version is working on my system. If it doesn't work for you, try
         sudo pip install --upgrade protobuf
 6. If you encountered other errors, check the official setup guide for more information.
