@@ -4,7 +4,7 @@ Installing GPU-enabled TensorFlow on Mac is a torture. It takes hours to find th
 
 Performance wise, the GPU version took about 3 minutes to run the "deep MNIST for experts" tutorial. 
 
-`https://www.tensorflow.org/tutorials/mnist/pros/`
+https://www.tensorflow.org/tutorials/mnist/pros/
 
 The cpu version did that in about half an hour. Apparantly, the 10x performance boost is worth the chore. 
 
@@ -49,7 +49,7 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
   Currently, enter cuda version as 8.0 and cudnn version as 5 (though 5.1 in fact)
   Check GPU computability on Nvidia's website:
   
-  `https://developer.nvidia.com/cuda-gpus`
+  https://developer.nvidia.com/cuda-gpus
   
   According to the official installation guide, when done configuring you should enter
   
@@ -60,7 +60,7 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
   However, most likely it will throw you an error `dyld: Library not loaded: @rpath/libcudart.8.0.dylib`
   To solve the problem see
   
-  `https://github.com/JimmyKon/tensorflow_build_issue_fix/tree/master`
+  https://github.com/JimmyKon/tensorflow_build_issue_fix/tree/master
   
   You will have to modify the `genrule-setup.sh` in your temp folder following the instructions.
   You can search or find it here:
@@ -86,7 +86,7 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
       
   I don't know whether there is a proper GPU version, this version is working on my system. If it doesn't work for you, try
   
-        sudo pip install --upgrade protobuf
+      sudo pip install --upgrade protobuf
         
 6. If you encountered other errors, check the official setup guide for more information.
 
