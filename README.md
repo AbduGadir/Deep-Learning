@@ -21,7 +21,9 @@ The cpu version did that in about half an hour. Apparantly, the 10x performance 
 
 2. Set Xcode directory to Xcode8, update brew, cask, bazel, cuda as Official setup guide
   Change directory of Xcode to the right version (may be somewhere else):
-`sudo xcode-select -s /Applications/XCode8.2/Xcode.app/`
+  
+  `sudo xcode-select -s /Applications/XCode8.2/Xcode.app/`
+  
   You can type  `gcc --version` to check LLVM version
 3. Set Xcode directory to Xcode7 to compile cuda samples to test whether the installation is a success. Don't forget to add cuda path to `~/.bash_profile`
        export CUDA_HOME=/usr/local/cuda
@@ -29,6 +31,7 @@ The cpu version did that in about half an hour. Apparantly, the 10x performance 
        export PATH="$CUDA_HOME/bin:$PATH"
 
     After installing cuda type in
+    
         sudo ln -s /usr/local/cuda/lib/libcuda.dylib /usr/local/cuda/lib/libcuda.1.dylib` 
 to create symbolic link so as to prevent segmentation fault when importing TensorFlow later
 
@@ -79,6 +82,7 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
       sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/protobuf-3.1.0-cp27-none-macosx_10_11_x86_64.whl 
       
   I don't know whether there is a proper GPU version, this version is working on my system. If it doesn't work for you, try
+  
         sudo pip install --upgrade protobuf
         
 6. If you encountered other errors, check the official setup guide for more information.
