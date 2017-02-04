@@ -1,4 +1,5 @@
-# Deep-Learning
+# Setting up TensorFlow-GPU on Mac
+
 Installing GPU-enabled TensorFlow on Mac is a torture. It takes hours to find the right tweaks. While there are only few people using NVIDIA GPUs on their mac because of recent adoption of AMD chips, this instruction will still benefit the users of Hackintosh or old Mac Pros. I'm not sure whether this will work on eGPUs, if it does, it could be great news for other Mac users with their purchase of eGPU boxes like Razor Core or Akitio Node.
 
       My System:
