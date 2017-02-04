@@ -44,16 +44,18 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
   `https://developer.nvidia.com/cuda-gpus`
   According to the official installation guide, when done configuring you should enter
   `bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package`
-  to start building. However, most likely it will throw you an error `dyld: Library not loaded: @rpath/libcudart.8.0.dylib`
-  To solve the problem see `https://github.com/JimmyKon/tensorflow_build_issue_fix/tree/master`
+  to start building. 
+  However, most likely it will throw you an error `dyld: Library not loaded: @rpath/libcudart.8.0.dylib`
+  To solve the problem see 
+  `https://github.com/JimmyKon/tensorflow_build_issue_fix/tree/master`
   You will have to modify the `genrule-setup.sh` in your temp folder following the instructions.
   You can search or find it here:
-        /private/var/tmp/.../execroot/tensorflow/external/bazel_tools/tools/genrule/genrule-setup.sh
+  `/private/var/tmp/.../execroot/tensorflow/external/bazel_tools/tools/genrule/genrule-setup.sh`
   After modification, run `./configure` in TensorFlow workspace again and start building with 
-        bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package 
+  `bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package`
   This will take a long time, enjoy your life. Continue with
-        bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-        sudo pip install --upgrade --ignore-installed  /tmp/tensorflow_pkg/tensorflow-*.whl
+  `bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg`
+  `sudo pip install --upgrade --ignore-installed  /tmp/tensorflow_pkg/tensorflow-*.whl`
   If you are using something like anaconda, `--ignore-installed` is necessary, `sudo` is related to your pip install
  
   At this time, try importing TensorFlow in your python. If it throws you a `keyerror:...`
