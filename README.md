@@ -27,11 +27,11 @@ The cpu version did that in about half an hour. Apparantly, the 10x performance 
   You can type  `gcc --version` to check LLVM version
 3. Set Xcode directory to Xcode7 to compile cuda samples to test whether the installation is a success. Don't forget to add cuda path to `~/.bash_profile`
 
-       export CUDA_HOME=/usr/local/cuda
+        export CUDA_HOME=/usr/local/cuda
        
-       export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+        export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
        
-       export PATH="$CUDA_HOME/bin:$PATH"
+        export PATH="$CUDA_HOME/bin:$PATH"
 
     After installing cuda type in
     
