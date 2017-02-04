@@ -90,6 +90,8 @@ to create symbolic link so as to prevent segmentation fault when importing Tenso
         
 6. If you encountered other errors, check the official setup guide for more information.
 
+
+
 Reference
 
 https://www.tensorflow.org/get_started/os_setup
